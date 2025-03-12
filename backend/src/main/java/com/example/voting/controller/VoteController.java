@@ -5,11 +5,13 @@ import com.example.voting.service.VoteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/api/vote")
+@RequestMapping("/api/votes")
 @CrossOrigin(origins = "http://localhost:8080")
 public class VoteController {
+
     private final VoteService voteService;
 
     public VoteController(VoteService voteService) {
@@ -34,5 +36,10 @@ public class VoteController {
     @DeleteMapping("/{id}")
     public void deleteVote(@PathVariable Long id) {
         voteService.deleteVote(id);
+    }
+
+    @GetMapping("/count")
+    public Map<String, Long> getVoteCounts() {
+        return voteService.countVotesByItem();
     }
 }
