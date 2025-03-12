@@ -26,21 +26,5 @@ export default {
             .post(API_URL, vote)
             .then(handleResponse)
             .catch(handleError);
-    },
-
-    // 更新投票
-    updateVote(id, vote) {
-        return axios
-            .put(`${API_URL}/${id}`, vote)
-            .then(handleResponse)
-            .catch(handleError);
-    },
-
-    // 刪除投票
-    deleteVote(id) {
-        return axios
-            .delete(`${API_URL}/${id}`)
-            .then(handleResponse)
-            .catch(handleError);
     }
 };

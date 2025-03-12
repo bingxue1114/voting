@@ -22,26 +22,17 @@ public class VoteService {
         this.votingItemRepository = votingItemRepository;
     }
 
+    // 獲取投票資料
     public List<Vote> getAllVotes() {
         return voteRepository.findAll();
     }
 
+    // 建立投票資料
     public Vote createVote(Vote vote) {
         return voteRepository.save(vote);
     }
 
-    public Vote updateVote(Long id, Vote updatedVote) {
-        return voteRepository.findById(id).map(vote -> {
-            vote.setVoterName(updatedVote.getVoterName());
-            vote.setVotingItems(updatedVote.getVotingItems());
-            return voteRepository.save(vote);
-        }).orElseThrow(() -> new RuntimeException("Vote not found"));
-    }
-
-    public void deleteVote(Long id) {
-        voteRepository.deleteById(id);
-    }
-
+    // 計算投票項目比數
     public Map<String, Long> countVotesByItem() {
         List<Vote> votes = voteRepository.findAll();
         Map<String, Long> voteCounts = new HashMap<>();

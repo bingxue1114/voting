@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.example.voting") // 這裡要確保包含 Controller 的 package
+@ComponentScan(basePackages = "com.example.voting")
 public class VotingSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VotingSystemApplication.class, args);

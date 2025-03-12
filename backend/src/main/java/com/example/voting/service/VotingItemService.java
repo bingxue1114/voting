@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class VotingItemService {
 
-    // 注入 VotingItemRepository 用於操作資料庫
+    // 用於操作資料庫
     @Autowired
     private VotingItemRepository votingItemRepository;
 
